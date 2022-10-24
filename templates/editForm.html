@@ -1,0 +1,38 @@
+{% extends "layout.html"%}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 my-2">
+            <h3>Edit Transaction</h3>
+            <form action="/updateStatement" method="post">
+                <input type="hidden" value="{{statement.id}}" name="id"/>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" name="date" class="form-control" value="{{statement.date}}">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="name">Transaction</label>
+                    <input type="text" name="name" class="form-control" value="{{statement.name}}">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="amount">Amount</label>
+                    <input type="text" name="amount" class="form-control" value="{{statement.amount}}">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select name="category" class="form-control">
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+                <input type="submit" value="Update" class="btn btn-primary my-2">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
